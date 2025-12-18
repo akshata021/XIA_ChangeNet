@@ -1,0 +1,13 @@
+# Ensure consistent line endings in the repo (store as LF on GitHub)
+* text=auto eol=lf
+
+# Keep common binaries as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pth binary
+*.tfevents.* binary
+
+

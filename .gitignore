@@ -1,0 +1,30 @@
+# Byte-compiled / cached / IDE
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# OS / editor noise
+Thumbs.db
+Desktop.ini
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# ML datasets & generated artifacts (do not commit)
+data/
+checkpoints/
+runs/
+outputs/
+notebooks/.ipynb_checkpoints/
+
+# Allow curated artifacts to be committed
+!reports/
+
+

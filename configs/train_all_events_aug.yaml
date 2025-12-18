@@ -1,0 +1,29 @@
+model:
+  name: siamese_unet_resnet18
+data:
+  root: data/xbd
+  img_size: 384
+  batch_size: 2
+  num_workers: 2
+  # Use 'all' to indicate combining all events under data/xbd/pairs_*.json
+  pairs_file: "all"
+  # Validation remains a single held-out event
+  val_pairs: data/xbd/pairs_mexico-earthquake.json
+training:
+  lr: 1.0e-4
+  epochs: 40
+  seed: 42
+  accum_steps: 1
+  scheduler: true
+  scheduler_type: "cosine"
+  max_grad_norm: 1.0
+  pos_weight: null
+  loss_type: "bce+dice+focal"
+  loss_weights:
+    bce: 1.0
+    dice: 1.0
+    focal: 0.5
+  focal_alpha: 0.25
+  focal_gamma: 2.0
+  optimize_threshold: true
+  threshold_grid: [0.2, 0.3, 0.4, 0.5, 0.6]

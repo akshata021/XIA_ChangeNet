@@ -1,0 +1,15 @@
+model:
+  name: siamese_unet_resnet18
+data:
+  root: data/xbd
+  img_size: 512
+  batch_size: 2
+training:
+  lr: 1.0e-4
+  epochs: 50
+  accum_steps: 2
+  num_workers: 2
+  scheduler: true
+  pos_weight: null
+  loss_type: "bce+dice"
+  # To try focal: loss_type: "focal+dice" and add focal_alpha / focal_gamma

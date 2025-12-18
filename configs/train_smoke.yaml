@@ -1,0 +1,18 @@
+model:
+  name: siamese_unet_resnet18
+data:
+  root: data/xbd
+  img_size: 256
+  batch_size: 1
+  pairs_file: data/xbd/pairs_guatemala-volcano.json
+  val_pairs: data/xbd/pairs_mexico-earthquake.json
+training:
+  lr: 5.0e-4
+  epochs: 15
+  accum_steps: 1
+  num_workers: 0
+  scheduler: true
+  scheduler_type: "cosine"
+  max_grad_norm: 1.0
+  pos_weight: null
+  loss_type: "bce+dice"

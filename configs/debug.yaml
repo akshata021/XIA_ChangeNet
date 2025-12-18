@@ -1,0 +1,12 @@
+model:
+  name: siamese_unet_resnet18
+data:
+  root: data/xbd
+  img_size: 256
+  batch_size: 1
+  pairs_file: data/xbd/pairs_guatemala-volcano.json
+training:
+  lr: 5.0e-4
+  epochs: 2
+  accum_steps: 1
+  num_workers: 0
