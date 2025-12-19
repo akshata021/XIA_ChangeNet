@@ -16,6 +16,35 @@ Post Image┤─ Shared ResNet18 encoders ── feature pyramid (5 scales)
                                          1x1 Conv → Change logits
 ```
 
+## Dataset
+
+This project uses the **xView2 (xBD) dataset** for training and evaluation. The dataset is **not included in this repository** for the following reasons:
+
+- **Size**: The dataset is very large (several GB), making it impractical to host on GitHub
+- **Licensing**: xView2 has specific terms of use that require downloading from the official source
+- **Best Practice**: Datasets should be downloaded separately to keep repositories lightweight
+
+### Download Instructions
+
+1. **Visit the official xView2 website**: https://challenge.xview2.org/
+2. **Register/Login** to access the dataset download page
+3. **Download the training data** (typically includes `train_images.tar.gz` and `train_labels.tar.gz`)
+4. **Extract the files** to your local machine
+
+### Expected Folder Structure
+
+After downloading and extracting, organize your data as follows:
+
+```
+data/
+└── train/
+    ├── images/          # Pre- and post-disaster satellite images
+    ├── labels/          # JSON annotation files
+    └── targets/         # (Optional) Ground truth masks
+```
+
+**Note**: The dataset folder (`data/`) is ignored by `.gitignore` to prevent accidental commits of large files.
+
 ## Dataset Preparation
 1. Place raw xBD files under `data/train/` preserving the `images/`, `labels/`, and optional `targets/` folders.
 2. Run the preparation script to generate event-wise folders, masks, and manifest files under `data/xbd/`:
@@ -106,7 +135,10 @@ Post Image┤─ Shared ResNet18 encoders ── feature pyramid (5 scales)
 ## GitHub / what to commit
 - This repo is intended to commit **code + configs + small curated reports** only.
 - Do **not** commit large/generated folders (they are ignored by `.gitignore`):
-  - `data/`, `checkpoints/`, `runs/`, `outputs/`
+  - `data/` (dataset must be downloaded separately from xView2 website - see [Dataset](#dataset) section)
+  - `checkpoints/` (model weights - too large for GitHub)
+  - `runs/` (TensorBoard logs)
+  - `outputs/` (full prediction dumps)
 - To export a small, GitHub-friendly set of results (metrics + a few prediction images) into `reports/`:
 
 ```powershell
