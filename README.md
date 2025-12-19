@@ -20,7 +20,7 @@ Post Image┤─ Shared ResNet18 encoders ── feature pyramid (5 scales)
 
 This project uses the **xView2 (xBD) dataset** for training and evaluation. The dataset is **not included in this repository** for the following reasons:
 
-- **Size**: The dataset is very large (several GB), making it impractical to host on GitHub
+- **Size**: The dataset is very large (8.02 GB), making it impractical to host on GitHub
 - **Licensing**: xView2 has specific terms of use that require downloading from the official source
 - **Best Practice**: Datasets should be downloaded separately to keep repositories lightweight
 
